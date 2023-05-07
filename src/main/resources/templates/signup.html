@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::parentPage(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title></title>
+<style>
+</style>
+</head>
+<body>
+
+	<section>
+		<!--  singup started -->
+		<div class="container">
+			<div class="row">
+				<div class="col-6  offset-3 bg-dark mt-1 ">	
+
+					<div class="card  mt-3 changesize" >
+					
+						<form th:action="@{/register}" th:method="post" class="mx-2" th:object="${user}">
+							<div class="form-group ">
+
+								<div class="container text-center">
+									<img th:src="@{/image/signup.png}" alt="" id="signup" />
+
+								</div>
+								<!-- this div only show when conditon is true otherwise it is hide -->
+								<!-- logic is that when there is not response key present is session then it means form is not submitted  -->
+								
+								 <div  th:if="${session.response}"  th:classappend="${session.response.messagetype}"  class="alert " role="alert" >
+                                     <h6 th:text="${session.response.content}"></h6>
+                                      
+                                   
+                                 </div> 
+                               
+								
+							
+								
+								
+								
+								 
+								   <label for="">&nbsp; your Name</label>
+								   <input type="text"
+								    name="name"	
+								     class="form-control "
+									 placeholder="enter here"
+									 th:classappend="${#fields.hasErrors('name')}?'is-invalid':''"
+									  >
+									  
+									  <div class="invalid-feedback"  th:each="err:${#fields.errors('name')}" th:text="${err}">
+        
+                                       </div>								  
+											
+							</div>
+
+							<div class="form-group">
+								<label for=""> &nbsp;your Email</label> 
+								<input type="email"								
+									class="form-control"
+									name="email"
+									 th:classappend="${#fields.hasErrors('email')}?'is-invalid':''"
+									 placeholder="enter here" >
+									 
+									 <div class="invalid-feedback" th:each="err:${#fields.errors('email')}" th:text="${err}">
+									 
+									 </div>
+							</div>
+
+							<div class="form-group">
+								<label for=""> &nbsp;your Password</label> 
+								<input
+									type="password"
+									 class="form-control" 
+									 placeholder="enter here"
+									 name="password"
+									 th:classappend="${#fields.hasErrors('password')}?'is-invalid':''"
+									 
+									 >
+									 
+									 <div class="invalid-feedback" th:each="err:${#fields.errors('password')}" th:text="${err}">
+									 
+									 
+									 
+									 </div>
+
+
+							</div>
+
+							<div class="form-group">
+
+								<textarea class="form-control" rows="3"
+								 name="about"
+								></textarea>
+
+							</div>
+							
+							<div class="form-check">
+								<input
+								 type="checkbox"
+								 class="form-check-input"
+								 name="check"
+									> 
+								<label class="form-check-label"
+									for="exampleCheck1">accept terms & condition</label>
+							</div>
+							
+
+							<div class="container text-center">
+								<button class="btn btn-secondary btn-sm" type="submit">submit</button>
+								<button class="btn btn-warning btn-sm" type="submit">Reset</button>
+
+
+							</div>
+
+						</form>
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+	</section>
+
+</body>
+</html>

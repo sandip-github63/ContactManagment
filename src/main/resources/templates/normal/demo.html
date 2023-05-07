@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normal/base::parentPage(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+<body>
+
+  <section >
+      <p th:each="i: ${#numbers.sequence(1,3)}" >demo <span th:text=${i}></span></p>
+  </section>
+	
+</body>
+</html>

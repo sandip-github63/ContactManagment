@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::parentPage(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+<body>
+
+	<section>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-10 offset-1">
+
+
+					<div class="card">
+						<div class="card-body">
+							<div class="container text-center">
+								<img th:src="@{'/image/'+${user.imageUrl}}"  class="view_detail_profile"
+									th:alt="@{/image/profile.png}" />
+
+
+							</div>
+
+							<h1 th:text="${user.name}"
+								class="text-center text-uppercase mt-3"></h1>
+
+							<div>
+
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col" class="font-weight">#USERID</th>
+											 <td th:text="${user.id}" class="font-size-3" style="padding-left:400px;"></td>
+											
+										</tr>
+										<tr>
+											<th scope="col" class="font-weight" >Email</th>
+											 <td th:text="${user.email}" class="font-size-3" style="padding-left:400px;"></td>
+											
+										</tr>
+										
+										<tr>
+											<th scope="col" class="font-weight">Acount Active</th>
+											 <td th:text="${user.enabled}" class="font-size-3" style="padding-left:400px;"></td>
+											
+										</tr>
+										
+										<tr>
+											<th scope="col" class="font-weight">About you</th>
+											 <td th:text="${user.about}" class="font-size-3" style="padding-left:400px;"></td>
+											
+										</tr>
+							
+							
+									</thead>
+									
+								    
+								    </table>	
+								    	
+							</div>
+
+
+
+						</div>
+
+					</div>
+
+
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+</body>
+</html>

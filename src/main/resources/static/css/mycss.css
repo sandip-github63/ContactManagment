@@ -1,0 +1,193 @@
+.navbarcolor{
+	background-color:#5f4c4c;
+	
+	
+}
+.padding{
+	padding-top:300px;
+}
+
+.banner{
+	width:100%;
+	height:90vh;
+	background:url("../image/mybanner.jpg");
+	background-size:cover;
+	color:white;
+	
+	
+	
+	
+}
+
+
+ .nav-item::after {
+     content: '';
+     display: block;
+     width: 0px;
+     height: 2px;
+     background: #fec400;
+     transition: 0.4s
+ }
+
+ .nav-item:hover::after {
+     width: 100%
+ }
+
+ .navbar-dark .navbar-nav .active>.nav-link,
+ .navbar-dark .navbar-nav .nav-link.active,
+ .navbar-dark .navbar-nav .nav-link.show,
+ .navbar-dark .navbar-nav .show>.nav-link,
+ .navbar-dark .navbar-nav .nav-link:focus,
+ .navbar-dark .navbar-nav .nav-link:hover {
+     color: #fec400
+ }
+
+ .nav-link {
+     padding: 25px 5px;
+     transition: 0.2s
+ }
+ 
+ 
+ #navBar{
+ 
+  background-color: #232F3E;
+  height:80px;
+  color:white;
+  margin-top: 1px;
+ }
+ 
+ 
+ #signup{
+    width:20%;
+    height:20%;
+    
+ 
+ }
+/*sidebar css */
+
+.sidebar{
+	padding-top:20px;
+	width:18%;
+	background:white;
+	height:100%;
+	position: fixed;
+	
+}
+
+.sidebar a{
+	text-decoration: none;
+	display: block;
+	padding:10px;
+	margin-left:10px;
+	color:gray;
+	font-weight: bolder;
+	
+	
+	
+}
+
+.content{	
+	margin-left: 20%;
+	
+	height: 100%;	
+	
+}
+
+body{
+	background: #e2e2e2;
+}
+
+.sidebar .crossicon{
+	
+	
+	
+	font-size:40px;
+	margin-left:80%;
+	
+	
+}
+
+.sidebar .divider{
+	
+	width: 100%;
+	background: #e2e2e2;
+	height: .5px;
+	margin-top: 10px;
+	
+	
+}
+
+@media only screen and(max-width: 600px){
+	
+	
+	
+.sidebar{
+	display:none;
+	padding-top:20px;
+	width:80%;
+	background:white;
+	height:100%;
+	position: fixed;
+	
+}
+
+.content{	
+	margin-left:0%;
+	
+	height: 100%;	
+	
+}
+}
+
+.content .barswala{
+	font-size:25px;
+	padding-top:10px;
+	
+}
+
+
+.sidebar a:hover{
+	
+	background: #42eff5;
+	
+	
+}
+
+.my_profile{
+   width: 50px;
+   height:50px;
+   border-radius: 50%;
+   object-fit:cover;
+	
+}
+.view_detail_profile{
+   width:180px;
+   height:180px;
+   border-radius: 50%;
+   object-fit:cover;	
+   padding-top: 4px;
+   padding-bottom: 4px;
+}
+
+
+
+/* this is for error page not found
+ */
+ 
+ 
+ /* search css */
+
+.search-container{
+	position:relative;
+	
+	
+} 
+
+.search-result{
+	position: absolute;
+	background: white;
+	width: 100%;
+	padding: 10px;
+	display:none;
+}
+ 

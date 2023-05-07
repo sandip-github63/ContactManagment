@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::parentPage(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+<body>
+
+	<section>
+
+
+		<div class="card">
+			<div class="card-body">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col offset-3">
+
+							<div class="card " style="width: 35rem;">
+								<div class="card-header"> <h2 class="px-5"><b>Change your setting</b></h2> </div>
+								 
+								 <a th:href="@{/users/setting}" class="btn btn-success mt-3"> <b>password change</b></a>
+								 <a th:href="@{/users/profile_change}" class="btn btn-secondary mt-1">profile change</a>
+								 
+								 <a href="#" class="btn btn-success mt-1" > <b>Rest password</b></a>
+								 <a href="#" class="btn btn-secondary mt-1">Forget password</a>
+								 
+							</div>
+
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</section>
+
+</body>
+</html>

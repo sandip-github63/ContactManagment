@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::parentPage(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+<body>
+	<section>
+		<div class="container-fluid mt-3">
+
+			<div class="row">
+				<div class="col">
+
+
+					<div class="card">
+						<div class="card-body">
+						  <!-- dynamically message show when user deleted successfully -->
+						    
+					      <div  th:if="${session.response}" th:classappend="${session.response.messagetype}" class="alert  text-center" role="alert" th:text="${session.response.content}">
+						
+					      	</div>
+					      	<!-- after message displayed i want to remove session object in this way message is not showing -->
+						     <span th:text="${#session.removeAttribute('response')}"></span>
+						
+						
+							<div>
+								<h2 class="text-center mt-0 py-0 ">Your  Contact</h2>
+
+							</div>
+							
+							<!-- search bar started -->
+							
+							 <div class="search-container my-4 ">
+							
+							   <input type="text" onkeyup="search()" id="search-input" class="form-control" placeholder="search your contact" />
+							
+							      <div class="search-result">
+							           <h1>this is search result </h1>
+							      
+							      
+							      </div>
+							
+							    
+							</div>
+							 
+							 
+							 
+							
+							   
+							
+							<!-- search bar ended  -->
+							
+							
+							
+
+							<table class="table mt-1">
+								<thead>
+									<tr>
+										<th scope="col">#ID</th>
+										<th scope="col">profile</th>
+										<th scope="col">name</th>
+										<th scope="col">email</th>
+										<th scope="col">phone</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr th:each="c :${contact}">
+										<th scope="row" th:row th:text="'ATS'+${c.cid}"></th>
+										<td><img th:src="@{'/image/'+${c.image}}"
+											class="my_profile" alt="default.png" /></td>
+										<td th:text="${c.name}"></td>
+										<td><a th:href="@{'/users/view-profile/'+${c.cid}}"
+											th:text="${c.email}"> </a></td>
+										<td th:text="${c.phone}"></td>
+
+										<!-- delete and update button -->
+										
+										<!-- in thymeleaf dynamically id is passed inside ||operator -->
+
+										<td><a th:onclick="|deleteContact(${c.cid})|"
+											class="btn btn-danger btn-sm"><i
+												class="fa-solid fa-trash-can"></i></a> 
+												<!-- update button started from here -->
+										 
+										 <form th:action="@{'/users/update-contact/'+${c.cid}}" method="post"
+										  style="display:inline-block;"
+										 >
+										 
+										  <button  type="submit"
+										   	class="btn btn-success btn-sm"><i
+											 class="fa-solid fa-pen-nib"></i></button></td>
+									    </form>
+									  
+
+									</tr>
+
+									<!-- pagination started  -->
+									<tr>
+										<td>
+											<nav aria-label="Page navigation example">
+												<ul class="pagination">
+
+													<!-- previous button started -->
+													<li class="page-item" th:if="${currentpage!=0}"><a
+														class="page-link"
+														th:href="@{'/users/show-contact/'+${currentpage-1}}"
+														aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+															<span class="sr-only">Previous</span>
+													</a></li>
+
+													<!-- previous button closed -->
+
+
+													<li th:classappend="${i==currentpage+1}?'active':''"
+														class="page-item"
+														th:each="i:${#numbers.sequence(1,totalpages)}"><a
+														class="page-link"
+														th:href="@{'/users/show-contact/'+${i-1}}" th:text="${i}"></a></li>
+
+													<!-- next button  -->
+
+													<li class="page-item" th:if="${totalpages-1!=currentpage}"><a
+														class="page-link"
+														th:href="@{'/users/show-contact/'+${currentpage+1}}"
+														aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+
+													</a></li>
+
+													<!-- next button close -->
+												</ul>
+											</nav>
+										</td>
+										<!-- pagination closed -->
+
+									</tr>
+
+								</tbody>
+
+							</table>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+	</section>
+
+
+</body>
+</html>

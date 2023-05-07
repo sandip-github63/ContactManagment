@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::parentPage(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+<title></title>
+
+</head>
+<body>
+
+	<section>
+	   
+		<form th:action="@{update-password}" method="post">
+		
+		<!-- show response Message  -->
+		
+		<div  th:if="${session.response}"  th:classappend="${session.response.messagetype}"  th:text="${session.response.content}" class="alert  text-center" role="alert">
+              
+        </div>
+        
+        <h1 th:text="${#session.removeAttribute('response')}"></h1>
+		
+		
+		
+		<!-- end respone message -->
+		
+		
+		
+		
+<!-- 		    <button type="button" class="cancelbtn">Cancel</button>				 
+ -->				
+			<div class="imgcontainer">
+				<img th:src="@{'/image/'+${image}}" alt="Avatar" class="view_detail_profile">
+			     
+			</div> 
+			
+			
+			
+			  
+<!-- 				<span class="psw">Forgot <a href="#">password?</a></span>
+ -->			
+			
+
+			<div class="container">
+				<label for="uname"><b>Enter old password</b></label> 
+				
+				 <input type="password" 
+					placeholder="keep carefully" name="old_password"> <label
+					for="psw"><b>Enter your new password</b></label> <input type="password"
+					placeholder="Enter strong password" name="new_password">
+
+				<button type="submit">change password</button>
+				<label> <input type="checkbox" checked="checked"
+					name="remember"> Remember me
+				</label>
+			</div>
+			
+		   <div class="hiddenfile">
+              <input name="image-change" type="file" id="fileinput"/>
+           </div>
+           
+		</form>
+
+	</section>
+
+</body>
+</html>

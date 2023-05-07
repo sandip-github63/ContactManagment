@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::parentPage(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title></title>
+</head>
+<body>
+
+	<section>
+		<!-- if contact not found then it means user is not valid and he 
+	      is trying to access another user's contact list that's why we are going to 
+	       hide contact from this user
+	      -->
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<div class="card mt-1">
+						<div class="card-body" th:if="${contact}">
+
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<marquee class="text-danger h3">
+											Welcome to your Profile picture <span
+												th:text="${contact.name}"></span>
+										</marquee>
+										<div class="card mt-2" style="width: 60rem;">
+
+											<div class="container text-center">
+												<img class="card-img-top  view_detail_profile"
+													th:src="@{'/image/'+${contact.image}}" alt="Card image cap">
+
+												<h2 class="text-uppercase">
+													<span th:text="${contact.name}"></span> (<span
+														th:text="${contact.nickName}"></span>)
+												</h2>
+											</div>
+
+											<table class="table table-secondary mt-3 text-white bg-dark">
+												<thead>
+													<tr class="bg-primary">
+
+														<th scope="col" class="text-white font-weight font-bold">ID</th>
+														<th scope="col" th:text="${contact.cid}"
+															style="padding-left: 600px;"></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="col">Email</th>
+														<th scope="col" th:text="${contact.email}"
+															style="padding-left: 600px;"></th>
+
+													</tr>
+
+													<tr class="bg-primary">
+														<th scope="col">Mobile</th>
+														<th scope="col" th:text="${contact.phone}"
+															style="padding-left: 600px;"></th>
+
+													</tr>
+
+													<tr class="">
+														<th scope="col">Profession</th>
+														<th scope="col" th:text="${contact.work}"
+															style="padding-left: 600px;"></th>
+
+													</tr>
+
+
+
+
+												</tbody>
+											</table>
+
+
+											<div class="card-body text-center">
+												<h2 class="card-title">About <span th:text="${contact.name}"></span></h2>
+												<p class="card-text" th:text="${contact.discription}"></p>
+												
+											</div>
+
+
+
+										</div>
+
+									</div>
+
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- this controller only show when user display error message  -->
+
+
+				<div class="controller mt-0 text-center mb-1" th:if="!${contact}">
+
+					<div class="card-body pt-5">
+
+						<img th:src="@{/image/404_error.png}" alt="" />
+
+					</div>
+
+					<a th:href="@{/users/show-contact/0}" class="btn btn-danger">go
+						to profile page</a>
+
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+		</div>
+
+		</div>
+
+
+
+	</section>
+
+</body>
+</html>

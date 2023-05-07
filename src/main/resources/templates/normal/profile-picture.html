@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normal/base::parentPage(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+<body>
+
+  <section >
+  
+      <form th:action="@{/users/changeUserProfile}" method="post" enctype='multipart/form-data'>
+      
+            <div class="card">
+                <div class="card-body">
+                     <div class="container">
+                        <div class="row">
+                        
+                           
+                           <div class="col">
+                           
+                                   <div  th:if="${session.response}"  th:classappend="${session.response.messagetype}"  th:text="${session.response.content}" class="alert  text-center" role="alert">
+              
+                                      </div>
+                                      
+                                       <h1 th:text="${#session.removeAttribute('response')}"></h1>
+		
+                                      
+                               
+                                  
+                                  <h3 style="padding-left:300px; " class="font-italic">click on image to update your profile</h3>
+                                 
+                                 <div class="imgcontainer mt-0 py-0">
+				                    <img onclick="imagechange()" th:src="@{'/image/'+${image}}" alt="Avatar" class="view_detail_profile">
+			     
+			                     </div> 
+                                  
+                                 <button type="submit" class="btn btn-primary">Save</button>
+                           
+                           </div>
+                        </div>
+                     
+                     </div>
+                
+                
+                </div>
+                
+            </div>
+           
+           
+           
+           <div class="hiddenfile">
+              <input name="image-change" type="file" id="fileinput"/>
+           </div>
+      
+      
+           
+      </form>
+     
+             
+     
+     
+  </section>
+	
+</body>
+</html>

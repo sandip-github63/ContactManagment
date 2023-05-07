@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normal/base::parentPage(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+</head>
+<body>
+
+  <section >
+    
+   
+    <div class="container-fluid">
+    
+       <div class="row">
+         <div class="col">
+             
+             <div class="card">
+             
+                 <div class="card-body">
+                     <a th:href="@{/users/checkout-form}" class="btn btn-primary btn-block text-uppercase">Payment integration</a>
+                     
+                      
+                       <div class="container text-center">
+                       
+                            <img th:src="@{/image/homepage.jpg}" class="" alt="" />
+                            <p >This is your home page </p>
+                       
+                       </div>
+                       <a th:href="@{/users/add-contact}" class="btn btn-primary btn-block text-uppercase">Add new Contact</a>
+                      
+                 
+                 </div>
+             </div>
+             
+             
+             
+         </div>
+       </div>
+    
+    </div>
+  </section>
+	
+</body>
+</html>
